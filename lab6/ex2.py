@@ -1,6 +1,6 @@
 import random
 
-from lab6.ex1 import ComplexNumber
+from lab6.ex1 import ComplexNumber  # import the class to  not duplicate the code
 
 
 class ComplexVector:
@@ -46,9 +46,6 @@ class ComplexVector:
     def __str__(self):
         elements_str = ", ".join(str(element) for element in self.elements)
         return f"Dimension: {self.dimension}, Elements: [{elements_str}]"
-
-
-
 
 
 if __name__ == "__main__":

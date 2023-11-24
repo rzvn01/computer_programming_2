@@ -1,6 +1,5 @@
-import random
 
-from lab6.ex2 import ComplexVector, ComplexNumber
+from lab6.ex2 import ComplexVector, ComplexNumber  # import the classes in order to use them  and not duplicate the code
 
 
 class ComplexMatrix(ComplexVector):
