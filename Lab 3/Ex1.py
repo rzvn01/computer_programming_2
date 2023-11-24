@@ -1,8 +1,5 @@
-import cmath
-
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib import cm
 import math
 
 
@@ -13,19 +10,10 @@ def rb(x1, x2):
 n = 40
 x1 = np.linspace(start=-1.5, stop=2, num=n)
 x2 = np.linspace(start=-0.5, stop=3, num=n)
-
-F = np.zeros((n, n))
-
-for i in range(n):
-    for k in range(n):
-        F[i][k] = rb(x1[i], x2[k])
+X1, X2 = np.meshgrid(x1, x2)
+F = rb(X1, X2)
 print(F)
 
-fig = plt.figure()
-ax = plt.axes(projection='3d')
-surface = ax.plot_surface(x1, x2, F, cstride=1, cmap=cm.inferno)
-ax.set_title('Rosenbrock Function')
-plt.show()
 
 # GOLDEN CUT
 tau = 2 / (1 + math.sqrt(5))
@@ -57,12 +45,11 @@ while (x[2] - x[1]) >= 0.01:
 #
 fig = plt.figure()
 wf = fig.add_subplot(111, projection="3d")
-wf.plot_wireframe(x1, x2, F, cmap="inferno")
-plt.show()
+wf.plot_wireframe(x1, x2, F, rstride=1, cstride=1,color="purple")
+wf.set_title("Rosenbrock function")
 
-
-print("\n+++ golden cut +++\n")
-print("x_min= %f" % x[1])
+print("\nGolden Cut Algorithm\n")
+print("Minimum x_min = %f" % x[1])
 print("f(x_min)= %f" % y[1])
 
 M = 10000
@@ -80,7 +67,8 @@ for n in range(M):
     x = x - alpha * g
     out[n][:] = x
 
-print("\n*** steepest descent ***\n")
+print("\n*** Steepest Descent Algorithm ***\n")
+plt.figure(3, figsize=(6, 4))
 plt.plot(np.linspace(0, M, M), out)
 
 plt.show()
