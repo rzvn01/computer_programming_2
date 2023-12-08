@@ -32,7 +32,7 @@ if __name__ == "__main__":
     get_url = "https://jsonplaceholder.typicode.com/posts/1"
     print(f"Get result: {http_handler.get(get_url)}")
 
-    post_url = "https://jsonplaceholder.typicode.com/posts"
+    post_url = "https://jsonplac4eholder.typicode.com/posts"
     post_data = {"title": "foo", "body": "bar", "userId": 1}
 
     print(f"Post result: {http_handler.post(post_url, post_data)}")

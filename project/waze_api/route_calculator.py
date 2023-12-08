@@ -5,6 +5,7 @@ import re
 from project.waze_api.route_error import RouteError
 
 
+# TODO logging part
 def coordinates_string_parser(coordinates):
     lat, lon = coordinates.split(',')
     print(lat, "\t", lon)
@@ -127,7 +128,7 @@ class RouteCalculator():
 
         response = requests.get(self.WAZE_URL + routing_server, params=url_options, headers=self.HEADERS)
         response.encoding = 'utf-8'
-        response_json = self._check_response(response)
+        response_json = self._check_response
 
         if response_json:
             if 'error' in response_json:
